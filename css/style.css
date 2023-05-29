@@ -17,3 +17,17 @@ body {
 	background-color: #fff;
 	padding: 2.5rem;
 }
+
+main {
+	display: flex;
+}
+
+form {
+	background-color: yellow;
+	width: 60%;
+}
+
+.container__data {
+	background-color: greenyellow;
+	width: 40%;
+}

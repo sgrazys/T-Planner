@@ -10,6 +10,10 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1.0"
 		/>
+		<link
+			rel="stylesheet"
+			href="css/style.css"
+		/>
 		<script
 			defer
 			src="script.js"
@@ -17,8 +21,84 @@
 		<title>T Planner</title>
 	</head>
 	<body>
-		<header></header>
-		<main></main>
-		<footer></footer>
+		<header>
+			<h1>Let's Plan Project!</h1>
+		</header>
+		<main>
+			<form>
+				<div class="form__row">
+					<label class="form__label">Scope of work:</label>
+					<input
+						class="form__input form__input--scope"
+						type="number"
+					/>
+				</div>
+				<div class="form__row">
+					<label class="form__label">Project Deadline:</label>
+					<input
+						class="form__input form__input--deadline"
+						type="date"
+					/>
+					<div class="form__row">
+						<label class="form__label">Busy on:</label>
+						<input
+							class="form__input form__input--busy__date"
+							type="date"
+						/>
+					</div>
+					<div class="form__row">
+						<label class="form__label">Reserved hours:</label>
+						<input
+							class="form__input form__input--hours"
+							type="number"
+						/>
+					</div>
+					<div class="bnt__container">
+						<button
+							class="btn btn--add"
+							type="submit"
+						>
+							Proceed
+
+
+						</button>
+						<button
+							class="btn btn--show"
+							type="button"
+						>
+							Show Plan
+						</button>
+						<button
+							class="btn btn--reset"
+							type="button"
+						>
+							Reset
+						</button>
+
+
+					</div>
+				</div>
+			</form>
+
+			<div class="container__data">
+				<h5>Your will be busy on:</h5>
+				<ul class='data__list'>
+					
+				</ul>
+
+				</div>
+			</div>
+		</main>
+		<footer>
+			<p class="copyright">
+				&copy; Copyright by
+				<a
+					class="linkedin-link"
+					target="_blank"
+					href="https://www.linkedin.com/in/saulius-grazys/"
+					>Saulius Grazys</a
+				>
+			</p>
+		</footer>
 	</body>
 </html>

@@ -52,8 +52,6 @@ btnScopeDeadline.addEventListener('click', function (e) {
 			plannedHours: 0,
 		});
 	}
-
-	console.log(allDates);
 });
 
 btnAdd.addEventListener('click', (e) => {
@@ -62,8 +60,14 @@ btnAdd.addEventListener('click', (e) => {
 	const busyHour = +busyHoursDOM.value;
 
 	// Validation of reserverd hours
-	if (busyHour > hoursInDay)
-		return alert('Ouuuu nou there are no so many hours in a day! Only 24');
+	if (busyHour > hoursInDay - sleepingHours)
+		return alert(
+			"Ouuuu nou you don't have so many available hours. Max - 16 , as you are sleeping 8 hours per day :)"
+		);
+
+	if (busyDate === '') return alert('Please add your busy date.');
+	if (busyHour === 0)
+		return alert('Please add your busy hours amount on that day.');
 
 	const busy = {
 		date: busyDate,
@@ -77,7 +81,6 @@ btnAdd.addEventListener('click', (e) => {
 	sameDate.freeHours > busyHour
 		? (sameDate.freeHours -= busyHour)
 		: (sameDate.freeHours = 0);
-	console.log(allDates);
 	// Update
 	// Reset values
 	busyDateDOM.value = busyHoursDOM.value = '';
@@ -92,7 +95,6 @@ btnAdd.addEventListener('click', (e) => {
 
 btnShow.addEventListener('click', function () {
 	const freeHours = allDates.reduce((t, curr) => t + curr.freeHours, 0);
-	console.log(freeHours);
 
 	if (freeHours < scope)
 		return alert(

@@ -5,11 +5,14 @@ const scopeDOM = document.querySelector('.form__input--scope');
 const deadlineDOM = document.querySelector('.form__input--deadline');
 const busyDateDOM = document.querySelector('.form__input--busy__date');
 const busyHoursDOM = document.querySelector('.form__input--hours');
-const dataListDOM = document.querySelector('.data__list');
-const containerDataDOM = document.querySelector('.container__data');
+
+// Elements
+const headlineDOM = document.querySelector('.headline');
+const dataHeaderDOM = document.querySelector('.data__header');
+const listDOM = document.querySelector('.list');
 
 // Buttons
-const btnAdd = document.querySelector('.btn--add');
+const btnAddBusyTime = document.querySelector('.btn--add');
 const btnShow = document.querySelector('.btn--show');
 const btnReset = document.querySelector('.btn--reset');
 const btnScopeDeadline = document.querySelector('.btn--add__scope__deadline');
@@ -41,6 +44,11 @@ btnScopeDeadline.addEventListener('click', function (e) {
 			(1000 * 60 * 60 * 24)
 	);
 
+	if (new Date(deadline).getTime() <= today.getTime())
+		return alert(
+			'Your project deadline cannot be current day or previous days! '
+		);
+
 	for (let i = 0; i < daysLeft; i++) {
 		const nextDay = new Date(today);
 		nextDay.setDate(today.getDate() + 1 + i);
@@ -52,14 +60,19 @@ btnScopeDeadline.addEventListener('click', function (e) {
 			plannedHours: 0,
 		});
 	}
+
+	headlineDOM.innerHTML = `<p>Project scope: ${scope} ${
+		scope === 1 ? 'hour' : 'hours'
+	} </p> 
+	<p>Deadline: ${deadline}</p>`;
 });
 
-btnAdd.addEventListener('click', (e) => {
+btnAddBusyTime.addEventListener('click', (e) => {
 	e.preventDefault();
 	const busyDate = busyDateDOM.value;
 	const busyHour = +busyHoursDOM.value;
 
-	// Validation of reserverd hours
+	// Validations
 	if (busyHour > hoursInDay - sleepingHours)
 		return alert(
 			"Ouuuu nou you don't have so many available hours. Max - 16 , as you are sleeping 8 hours per day :)"
@@ -68,6 +81,21 @@ btnAdd.addEventListener('click', (e) => {
 	if (busyDate === '') return alert('Please add your busy date.');
 	if (busyHour === 0)
 		return alert('Please add your busy hours amount on that day.');
+
+	if (
+		new Date(busyDateDOM.value).getTime() >
+		new Date(deadlineDOM.value).getTime()
+	)
+		return alert('You pick busy date after project deadline. ');
+	if (
+		new Date(busyDateDOM.value).getTime() ===
+		new Date(deadlineDOM.value).getTime()
+	)
+		return alert('This is your deadline date.');
+	if (new Date(busyDateDOM.value).getTime() < today.getTime())
+		return alert('Ooops, you can not to plan history :)');
+
+	if (allDates.length === 0) return alert('Please define project deadline ');
 
 	const busy = {
 		date: busyDate,
@@ -86,11 +114,14 @@ btnAdd.addEventListener('click', (e) => {
 	busyDateDOM.value = busyHoursDOM.value = '';
 
 	// Render busy dates and hours
+	const htmlHeader = `Your are busy on:`;
+	dataHeaderDOM.innerHTML = htmlHeader;
+
 	const html = `
     <li>${busyDate} for ${busyHour} ${busyHour === 1 ? 'hour' : 'hours'}</li>
     `;
 
-	dataListDOM.insertAdjacentHTML('beforeend', html);
+	listDOM.insertAdjacentHTML('beforeend', html);
 });
 
 btnShow.addEventListener('click', function () {
@@ -102,8 +133,6 @@ btnShow.addEventListener('click', function () {
 				scope - freeHours
 			} valandu!`
 		);
-
-	containerDataDOM.innerHTML = '';
 
 	// Share available hours per day
 	scope;
@@ -118,13 +147,17 @@ btnShow.addEventListener('click', function () {
 		}
 	}
 
+	listDOM.innerHTML = '';
 	// Render list
+	const htmlHeader = `You daily working plan:`;
+	dataHeaderDOM.innerHTML = htmlHeader;
+
 	allDates.forEach(({ date, _, plannedHours }) => {
-		let html = `<li>You should spent ${plannedHours} ${
-			plannedHours === 1 ? 'hour' : 'hours'
+		let html = `<li>${plannedHours} ${
+			plannedHours < 2 ? 'hour' : 'hours'
 		} on ${date}</li> `;
 
-		containerDataDOM.insertAdjacentHTML('beforeend', html);
+		listDOM.insertAdjacentHTML('beforeend', html);
 	});
 });
 
@@ -134,5 +167,9 @@ btnReset.addEventListener('click', function () {
 	scope = 0;
 	scopeDOM.value = '';
 	deadlineDOM.value = '';
-	containerDataDOM.innerHTML = '';
+	dataHeaderDOM.innerHTML = '';
+	listDOM.innerHTML = '';
+	busyDateDOM.value = '';
+	busyHoursDOM.value = '';
+	headlineDOM.innerHTML = "Let's Plan Project!";
 });

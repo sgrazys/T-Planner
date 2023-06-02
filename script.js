@@ -20,7 +20,7 @@ const allDates = []; // Susigeneruoja pridedant work scope ir project deadline
 const hoursInDay = 24;
 const sleepingHours = 8;
 const today = new Date();
-let scope;
+let scope = 0;
 
 // Event listeners
 btnScopeDeadline.addEventListener('click', function (e) {
@@ -29,7 +29,7 @@ btnScopeDeadline.addEventListener('click', function (e) {
 	const deadline = deadlineDOM.value;
 
 	// Validation of scope
-	if (scope === 0) return alert('Please fill scope of project.');
+	if (scope === 0) return alert('Please add valid scope of project.');
 	if (scope < 0) return alert('Project scope can not be negative.');
 
 	// Validation of deadline
@@ -126,4 +126,13 @@ btnShow.addEventListener('click', function () {
 
 		containerDataDOM.insertAdjacentHTML('beforeend', html);
 	});
+});
+
+btnReset.addEventListener('click', function () {
+	allDates.length = 0;
+	busyDates.length = 0;
+	scope = 0;
+	scopeDOM.value = '';
+	deadlineDOM.value = '';
+	containerDataDOM.innerHTML = '';
 });

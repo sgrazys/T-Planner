@@ -1,6 +1,22 @@
+:root {
+	--color-primary: #5ec576;
+	--color-secondary: #ffcb03;
+	--color-tertiary: #ff585f;
+	--color-primary-darker: #4bbb7d;
+	--color-secondary-darker: #ffbb00;
+	--color-tertiary-darker: #fd424b;
+	--color-primary-opacity: #5ec5763a;
+	--color-secondary-opacity: #ffcd0331;
+	--color-tertiary-opacity: #ff58602d;
+	--gradient-primary: linear-gradient(to top left, #39b385, #9be15d);
+	--gradient-secondary: linear-gradient(to top left, #ffb003, #ffcb03);
+}
+
 html {
 	scroll-behavior: smooth;
+	font-size: 80%;
 }
+
 body,
 body * {
 	padding: 0;
@@ -9,25 +25,91 @@ body * {
 }
 
 body {
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
-		sans-serif;
-	font-weight: 400;
+	font-family: 'Poppins', sans-serif;
 	line-height: 2;
+	color: #444;
+	background-color: #f3f3f3;
 	height: 100vh;
-	background-color: #fff;
-	padding: 2.5rem;
+}
+
+h1 {
+	text-align: center;
+	font-weight: 300;
 }
 
 main {
 	display: flex;
+	justify-content: center;
+	margin: 4rem auto;
+	gap: 3rem;
 }
 
 form {
-	background-color: yellow;
-	width: 60%;
+	display: grid;
+	/* background-color: yellow; */
+	width: 50%;
+	padding: 1rem;
+	font-size: 1.2rem;
+}
+.details__container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding: 1rem;
+	border-bottom: #39b385 0.1rem solid;
 }
 
+.form__input {
+	border: none;
+	background-color: rgba(255, 255, 255);
+	font-family: inherit;
+	font-size: 1rem;
+	text-align: center;
+	color: #333;
+	padding: 0.3rem;
+	border-radius: 0.4rem;
+	width: 90%;
+	margin-bottom: 1.2rem;
+}
 .container__data {
 	background-color: greenyellow;
 	width: 40%;
+}
+
+.btn__container {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+form > .btn__container {
+	margin-top: 1.5rem;
+}
+
+.btn {
+	border: none;
+	border-radius: 0.2rem;
+	width: 8.5rem;
+	padding: 1rem;
+	font-family: inherit;
+	cursor: pointer;
+}
+
+.btn:hover {
+	opacity: 0.7;
+	transition: all 0.4s;
+}
+
+.btn.green {
+	background-color: #4bbb7d;
+}
+.btn.orange {
+	background-color: #ffcb03;
+}
+.btn.red {
+	background-color: #fd424b;
+}
+
+footer {
+	font-size: 0.7rem;
+	margin-left: 5rem;
 }

@@ -11,6 +11,10 @@
 			content="width=device-width, initial-scale=1.0"
 		/>
 		<link
+			href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap"
+			rel="stylesheet"
+		/>
+		<link
 			rel="stylesheet"
 			href="css/style.css"
 		/>
@@ -22,88 +26,97 @@
 	</head>
 	<body>
 		<header>
-			<h1>Let's Plan Project!</h1>
+			<h1 class="headline">Let's Plan Project!</h1>
 		</header>
 		<main>
 			<form>
-				<div class="form__row">
-					<label class="form__label">Scope of work:</label>
-					<input
-						class="form__input form__input--scope"
-						type="number"
-					/>
-				</div>
-				<div class="form__row">
-					<label class="form__label">Project Deadline:</label>
-					<input
-						class="form__input form__input--deadline"
-						type="date"
-					/>
+				<div class="details__container">
+					<div class="form__row--container">
+						<div class="form__row">
+							<label class="form__label">Project scope:</label>
+							<input
+								class="form__input form__input--scope"
+								type="number"
+								placeholder="planned hours"
+							/>
+						</div>
+						<div class="form__row">
+							<label class="form__label">Project Deadline:</label>
+							<input
+								class="form__input form__input--deadline"
+								type="date"
+							/>
+						</div>
 					</div>
 
-					<button
-							class="btn btn--add__scope__deadline"
+					<div class="btn__container">
+						<button
+							class="btn orange btn--add__scope__deadline"
 							type="button"
 						>
-							Add Scope & Deadline
+							Add Scope & deadline
 						</button>
-					<div class="form__row">
-						<label class="form__label">Busy on:</label>
-						<input
-							class="form__input form__input--busy__date"
-							type="date"
-						/>
 					</div>
-					<div class="form__row">
-						<label class="form__label">Reserved hours:</label>
-						<input
-							class="form__input form__input--hours"
-							type="number"
-						/>
+				</div>
+
+				<div class="details__container">
+					<div class="form__row--container">
+						<div class="form__row">
+							<label class="form__label">Busy on:</label>
+							<input
+								class="form__input form__input--busy__date"
+								type="date"
+							/>
+						</div>
+						<div class="form__row">
+							<label class="form__label">Reserved hours:</label>
+							<input
+								class="form__input form__input--hours"
+								type="number"
+								placeholder="reserved hours"
+							/>
+						</div>
 					</div>
-					<div class="bnt__container">
+					<div class="btn__container">
 						<button
-							class="btn btn--add"
+							class="btn orange btn--add"
 							type="submit"
 						>
 							Add busy time
 						</button>
-						<button
-							class="btn btn--show"
-							type="button"
-						>
-							Show Plan
-						</button>
-						<button
-							class="btn btn--reset"
-							type="button"
-						>
-							Reset
-						</button>
-
-
 					</div>
+				</div>
+
+				<div class="btn__container">
+					<button
+						class="btn green btn--show"
+						type="button"
+					>
+						Show Plan
+					</button>
+					<button
+						class="btn red btn--reset"
+						type="button"
+					>
+						Reset
+					</button>
 				</div>
 			</form>
 
 			<div class="container__data">
-				<h5>Your will be busy on:</h5>
-				<ul class='data__list'>
-					
-				</ul>
-
-				</div>
+				<h4 class="data__header"></h4>
+				<ul class="list"></ul>
 			</div>
 		</main>
 		<footer>
-			<p class="copyright">
-				&copy; Copyright by
+			<p>
 				<a
 					class="linkedin-link"
 					target="_blank"
 					href="https://www.linkedin.com/in/saulius-grazys/"
 					>Saulius Grazys</a
 				>
+				2021
 			</p>
 		</footer>
 	</body>

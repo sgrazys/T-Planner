@@ -111,11 +111,12 @@ form > .btn__container {
 
 footer {
 	font-size: 0.7rem;
-	margin-left: 5rem;
+	margin-left: 1rem;
 }
 
 .modal {
 	width: 30rem;
+	color: orangered;
 	background-color: #ffb003;
 	position: fixed;
 	max-width: 40rem;
@@ -124,12 +125,13 @@ footer {
 	transform: translate(-50%, -50%);
 	background-color: #f3f3f3;
 	z-index: 1000;
-	transition: all 0.5s;
 	padding: 5rem;
+	text-align: center;
 }
 
 .btn--close-modal {
-	color: inherit;
+	color: #444;
+	background-color: inherit;
 	position: absolute;
 	top: 0.5rem;
 	right: 2rem;
@@ -147,7 +149,6 @@ footer {
 	background-color: rgba(0, 0, 0, 0.5);
 	backdrop-filter: blur(4px);
 	z-index: 100;
-	transition: all 0.5s;
 }
 
 .hidden {

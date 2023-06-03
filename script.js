@@ -188,7 +188,6 @@ btnAddBusyTime.addEventListener('click', (e) => {
 	const html = `
     <li class="list__item">
 		<p>${busyDate} for ${busyHour} ${busyHour === 1 ? 'hour' : 'hours'}</p>
-		<button class="btn--delete-item">&times;</button>
 		</li>
     `;
 
@@ -212,7 +211,7 @@ btnShow.addEventListener('click', function () {
 
 	if (allDates.length === 0 || busyDates.length === 0) {
 		modalText(
-			`Please provide:<br> - The project scope and deadline. <br> - Your busy dates and hours.`
+			`Please provide:<br> 1. The project scope and deadline. <br> 2. Your busy dates and hours.`
 		);
 		openModal();
 		return;
@@ -241,14 +240,6 @@ btnShow.addEventListener('click', function () {
 			plannedHours < 2 ? 'hour' : 'hours'
 		} on <strong>${date}</strong></p>
 		</li> `;
-
-		// 	<li class="list__item">
-		// 	<p>
-		// 		1. Work <strong>12 hours</strong> on
-		// 		<strong>2023 01 01</strong>
-		// 	</p>
-		// 	<button class="btn--delete-item">&times;</button>
-		// </li>
 
 		listDOM.insertAdjacentHTML('beforeend', html);
 	});

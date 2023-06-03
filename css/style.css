@@ -26,8 +26,8 @@ h1 {
 main {
 	display: flex;
 	justify-content: center;
-	margin: 4rem auto;
 	gap: 3rem;
+	margin-top: 2.5rem;
 }
 
 form {
@@ -122,7 +122,6 @@ form > .btn__container {
 	height: 400px;
 	width: 100%;
 	overflow-y: scroll;
-	/* background-color: royalblue; */
 }
 
 .list__item {
@@ -142,19 +141,10 @@ form > .btn__container {
 	margin-left: 0.5rem;
 }
 
-.btn--delete-item {
-	color: #c83232;
-	background-color: inherit;
-	font-size: 2rem;
-	cursor: pointer;
-	border: none;
-	margin-left: 0.5rem;
-	margin-right: 0.5rem;
-}
-
 footer {
 	font-size: 0.7rem;
 	margin-left: 1rem;
+	margin-top: 5rem;
 }
 
 .modal {
@@ -223,5 +213,33 @@ footer {
 	}
 	.logo {
 		width: 150px;
+	}
+}
+
+@media (max-width: 510px) {
+	main {
+		display: grid;
+		gap: 1rem;
+		margin-top: 0rem;
+	}
+	.modal {
+		width: 20rem;
+		font-size: 12px;
+	}
+	.container__data {
+		width: 300px;
+		height: 200px;
+	}
+	.data__header {
+		margin-bottom: 1rem;
+	}
+
+	.list {
+		height: 200px;
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+	}
+	.btn--close-modal {
+		font-size: 2.5rem;
 	}
 }

@@ -12,6 +12,8 @@ const dataHeaderDOM = document.querySelector('.data__header');
 const listDOM = document.querySelector('.list');
 const modalDOM = document.querySelector('.modal');
 const overlayDOM = document.querySelector('.overlay');
+const containerDataDOM = document.querySelector('.container__data');
+const logoContainer = document.querySelector('.logo__container');
 
 // Buttons
 const btnAddBusyTime = document.querySelector('.btn--add');
@@ -43,6 +45,16 @@ const modalText = function (message) {
 	const modaltextDOM = document.querySelector('.modal__text');
 	modaltextDOM.innerHTML = message;
 };
+
+// Delete logo
+function deleteLogo() {
+	logoContainer.remove();
+}
+
+// Add logo
+function addLogo() {
+	containerDataDOM.prepend(logoContainer);
+}
 
 // Event listeners
 btnScopeDeadline.addEventListener('click', function (e) {
@@ -175,6 +187,7 @@ btnAddBusyTime.addEventListener('click', (e) => {
     <li>${busyDate} for ${busyHour} ${busyHour === 1 ? 'hour' : 'hours'}</li>
     `;
 
+	deleteLogo();
 	listDOM.insertAdjacentHTML('beforeend', html);
 });
 
@@ -230,6 +243,7 @@ btnReset.addEventListener('click', function () {
 	busyDateDOM.value = '';
 	busyHoursDOM.value = '';
 	headlineDOM.innerHTML = "Let's Plan Project!";
+	addLogo();
 });
 
 btnCloseModal.addEventListener('click', function () {

@@ -71,7 +71,7 @@ form {
 	margin-bottom: 1.2rem;
 }
 .container__data {
-	background-color: greenyellow;
+	border: 2px solid red;
 	width: 40%;
 }
 
@@ -107,6 +107,16 @@ form > .btn__container {
 }
 .btn.red {
 	background-color: #fd424b;
+}
+
+.logo__container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+.logo {
+	width: 250px;
 }
 
 footer {

@@ -99,10 +99,12 @@ btnScopeDeadline.addEventListener('click', function (e) {
 		});
 	}
 
-	headlineDOM.innerHTML = `<p>Project scope: ${scope} ${
+	headlineDOM.innerHTML = `<p>Project scope: <strong>${scope} ${
 		scope === 1 ? 'hour' : 'hours'
-	} </p> 
-	<p>Deadline: ${deadline}</p>`;
+	} </strong> </p> 
+	<p>Deadline: <strong>${deadline}</strong></p>`;
+
+	scopeDOM.value = deadlineDOM.value = '';
 });
 
 btnAddBusyTime.addEventListener('click', (e) => {
@@ -184,7 +186,10 @@ btnAddBusyTime.addEventListener('click', (e) => {
 	dataHeaderDOM.innerHTML = htmlHeader;
 
 	const html = `
-    <li>${busyDate} for ${busyHour} ${busyHour === 1 ? 'hour' : 'hours'}</li>
+    <li class="list__item">
+		<p>${busyDate} for ${busyHour} ${busyHour === 1 ? 'hour' : 'hours'}</p>
+		<button class="btn--delete-item">&times;</button>
+		</li>
     `;
 
 	deleteLogo();
@@ -205,6 +210,14 @@ btnShow.addEventListener('click', function () {
 		return;
 	}
 
+	if (allDates.length === 0 || busyDates.length === 0) {
+		modalText(
+			`Please provide:<br> - The project scope and deadline. <br> - Your busy dates and hours.`
+		);
+		openModal();
+		return;
+	}
+
 	// Share available hours per day
 	scope;
 	while (scope > 0) {
@@ -220,13 +233,22 @@ btnShow.addEventListener('click', function () {
 
 	listDOM.innerHTML = '';
 	// Render list
-	const htmlHeader = `You daily working plan:`;
+	const htmlHeader = `Your work plan:`;
 	dataHeaderDOM.innerHTML = htmlHeader;
 
 	allDates.forEach(({ date, _, plannedHours }) => {
-		let html = `<li>${plannedHours} ${
+		let html = `<li class="list__item"><p> Work <strong>${plannedHours}</strong>  ${
 			plannedHours < 2 ? 'hour' : 'hours'
-		} on ${date}</li> `;
+		} on <strong>${date}</strong></p>
+		</li> `;
+
+		// 	<li class="list__item">
+		// 	<p>
+		// 		1. Work <strong>12 hours</strong> on
+		// 		<strong>2023 01 01</strong>
+		// 	</p>
+		// 	<button class="btn--delete-item">&times;</button>
+		// </li>
 
 		listDOM.insertAdjacentHTML('beforeend', html);
 	});

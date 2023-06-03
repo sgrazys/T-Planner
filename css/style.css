@@ -72,7 +72,9 @@ form {
 }
 .container__data {
 	border: 2px solid red;
-	width: 40%;
+	width: 35%;
+	margin-left: 2rem;
+	margin-right: 2rem;
 }
 
 .btn__container {
@@ -119,6 +121,41 @@ form > .btn__container {
 	width: 250px;
 }
 
+.list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 445px;
+	overflow-y: scroll;
+}
+
+.list__item {
+	display: flex;
+	justify-content: space-around;
+	gap: 10px;
+	margin: 0.3rem;
+	width: 80%;
+	list-style: none;
+	border-radius: 0.5rem;
+	background-color: rgba(255, 255, 255);
+}
+
+.list__item > p {
+	text-align: center;
+	font-size: 1.2rem;
+	margin-left: 0.5rem;
+}
+
+.btn--delete-item {
+	color: #c83232;
+	background-color: inherit;
+	font-size: 2rem;
+	cursor: pointer;
+	border: none;
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+}
+
 footer {
 	font-size: 0.7rem;
 	margin-left: 1rem;
@@ -127,7 +164,6 @@ footer {
 .modal {
 	width: 30rem;
 	color: orangered;
-	background-color: #ffb003;
 	position: fixed;
 	max-width: 40rem;
 	top: 50%;
@@ -163,4 +199,20 @@ footer {
 
 .hidden {
 	visibility: hidden;
+}
+
+@media (max-width: 956px) {
+	.list__item {
+		justify-content: center;
+		align-items: center;
+		line-height: 1.5;
+	}
+	.list__item > p {
+		font-size: 1rem;
+	}
+}
+@media (max-width: 635px) {
+	.btn.btn.orange {
+		margin-left: 1.5rem;
+	}
 }

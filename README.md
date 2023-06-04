@@ -4,6 +4,8 @@
 
 This is my home task project.
 
+Web page published at: [https://sgrazys.github.io/T-Planner/](https://sgrazys.github.io/T-Planner/)
+
 ## 🧰 Getting Started
 
 ### 💻 Prerequisites

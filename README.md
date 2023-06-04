@@ -6,8 +6,9 @@ This is my home task project.
 
 Task:
 Take values from the inputs and calculate whether there is enough time to complete the project.
-If NO, display a message indicating that you don't have enough time to complete the project.
-If YES, provide a list indicating the recommended number of hours per day to spend on the project in order to complete it.
+
+-   If NO, display a message indicating that you don't have enough time to complete the project.
+-   If YES, provide a list indicating the recommended number of hours per day to spend on the project in order to complete it.
 
 Web page published at: [https://sgrazys.github.io/T-Planner/](https://sgrazys.github.io/T-Planner/)
 

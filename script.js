@@ -103,8 +103,6 @@ btnScopeDeadline.addEventListener('click', function (e) {
 		scope === 1 ? 'hour' : 'hours'
 	} </strong> </p> 
 	<p>Deadline: <strong>${deadline}</strong></p>`;
-
-	scopeDOM.value = deadlineDOM.value = '';
 });
 
 btnAddBusyTime.addEventListener('click', (e) => {
